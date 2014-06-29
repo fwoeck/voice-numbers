@@ -27,6 +27,9 @@ require './lib/ami_event'
 require './lib/generates_reports'
 require './lib/aggregates_numbers'
 
+require './lib/amqp_manager'
+AmqpManager.start
+
 
 RS = Rufus::Scheduler.new
 RS.cron '* * * * *', overlap: false do

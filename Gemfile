@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'axlsx'
 gem 'redis'
+gem 'bunny'
 gem 'sequel'
 gem 'mongoid'
 gem 'rufus-scheduler'
