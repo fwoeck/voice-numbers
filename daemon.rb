@@ -14,3 +14,5 @@ require 'mongoid'
 require 'rufus-scheduler'
 
 PushConf = YAML.load(File.read(File.join('./config/app.yml')))
+puts PushConf
+sleep
