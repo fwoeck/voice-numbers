@@ -30,7 +30,9 @@ require './lib/aggregates_numbers'
 
 RS = Rufus::Scheduler.new
 RS.cron '* * * * *', overlap: false do
-  GeneratesReports.new AggregatesNumbers.new(Numbers.get_timeframe)
+  GeneratesReports.new(
+    AggregatesNumbers.new Numbers.set_timestamp
+  ).log
 end
 
 

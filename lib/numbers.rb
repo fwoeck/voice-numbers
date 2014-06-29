@@ -40,10 +40,16 @@ module Numbers
   end
 
 
-  def self.get_timeframe
-    start = 1
-    stop  = 2
+  def self.redis_key
+    @@redis_key ||= "last_timestamp_#{ENV['RAILS_ENV'] || 'development'}"
+  end
 
+
+  def self.set_timestamp
+    start = redis_db.get(redis_key) || '2014-01-01T00:00:00.000+00:00'
+    stop  = Time.now.utc.strftime '%Y-%m-%dT%H:%M:%S.%L+00:00'
+
+    redis_db.set(redis_key, stop)
     [start, stop]
   end
 end
