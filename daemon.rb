@@ -9,10 +9,70 @@ Bundler.require
 
 require 'yaml'
 require 'json'
-require 'axlsx'
-require 'mongoid'
-require 'rufus-scheduler'
 
-PushConf = YAML.load(File.read(File.join('./config/app.yml')))
-puts PushConf
-sleep
+
+Signal.trap('TERM') do
+  puts 'Shutting down..'
+  sleep 1 while RS.running_jobs.size > 0
+  puts 'Numbers finished..'
+  exit
+end
+
+
+module Numbers
+  cattr_reader :number_conf, :redis_db, :sql_db
+
+  def self.read_config
+    @@number_conf = YAML.load(File.read(File.join('./config/app.yml')))
+  end
+
+  def self.setup_redis
+    @@redis_db = ConnectionPool::Wrapper.new(size: 5, timeout: 3) {
+      Redis.new(host: number_conf['redis_host'], port: number_conf['redis_port'], db: number_conf['redis_db'])
+    }
+  end
+
+  def self.setup_mongodb
+    Mongoid.load!('./config/mongoid.yml', ENV['RAILS_ENV'].to_sym)
+  end
+
+  def self.setup_sqldb
+    plug = RUBY_PLATFORM =~ /java/ ? 'jdbc:mysql' : 'mysql2'
+    db   = number_conf['mysql_db']
+    host = number_conf['mysql_host']
+    port = number_conf['mysql_port']
+    user = number_conf['mysql_user']
+    pass = number_conf['mysql_pass']
+    uri  = "#{plug}://#{host}:#{port}/#{db}?user=#{user}&password=#{pass}"
+
+    @@sql_db = Sequel.connect(uri)
+  end
+
+  def self.setup
+    read_config
+    setup_redis
+    setup_mongodb
+    setup_sqldb
+  end
+end
+
+Numbers.setup
+
+
+class User < Sequel::Model
+end
+
+class AggregatesNumbers
+end
+
+class GeneratesReports
+end
+
+
+RS = Rufus::Scheduler.new
+
+RS.cron '* * * * *', overlap: false do
+end
+
+puts 'Numbers launched..'
+RS.join
