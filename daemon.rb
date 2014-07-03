@@ -40,4 +40,8 @@ end
 
 
 puts 'Numbers launched..'
-RS.join
+begin
+  RS.join
+rescue ThreadError
+  # see https://github.com/jmettraux/rufus-scheduler/issues/98
+end
