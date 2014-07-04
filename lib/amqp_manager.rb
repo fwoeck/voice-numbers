@@ -6,11 +6,9 @@ module AmqpManager
       Thread.current[:numbers_channel] ||= @connection.create_channel
     end
 
-
     def numbers_xchange
       Thread.current[:numbers_xchange] ||= numbers_channel.topic('voice.numbers', auto_delete: false)
     end
-
 
     def numbers_queue
       Thread.current[:numbers_queue] ||= numbers_channel.queue('voice.numbers', auto_delete: false)
@@ -21,16 +19,9 @@ module AmqpManager
       Thread.current[:rails_channel] ||= @connection.create_channel
     end
 
-
     def rails_xchange
       Thread.current[:rails_xchange] ||= rails_channel.topic('voice.rails', auto_delete: false)
     end
-
-
-    def rails_queue
-      Thread.current[:rails_queue] ||= rails_channel.queue('voice.rails', auto_delete: false)
-    end
-
 
     def rails_publish(payload)
       rails_xchange.publish(payload, routing_key: 'voice.rails')
@@ -62,9 +53,6 @@ module AmqpManager
         rails_publish(payload)
         AmiEvent.log(payload)
       }
-
-      rails_channel.queue('voice.rails', auto_delete: false)
-                   .bind(rails_xchange, routing_key: 'voice.rails')
     end
   end
 end
