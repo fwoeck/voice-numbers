@@ -48,6 +48,9 @@ module AmqpManager
         user:     Numbers.number_conf['rabbit_user'],
         password: Numbers.number_conf['rabbit_pass']
       ).tap { |c| c.start }
+    rescue Bunny::TCPConnectionFailed
+      sleep 1
+      retry
     end
 
 
