@@ -3,6 +3,7 @@
 
 STDOUT.sync = true
 STDERR.sync = true
+ENV['TZ']   = 'UTC'
 
 require 'bundler'
 Bundler.require
