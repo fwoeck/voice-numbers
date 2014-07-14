@@ -9,9 +9,10 @@ class GeneratesReports
 
 
   def log
-    table.each do |row|
-      puts row.inspect
-    end
+    # table.each do |row|
+    #   puts row.inspect
+    # end
+    puts "Generated a report for the last #{table.size} events."
   end
 
 
