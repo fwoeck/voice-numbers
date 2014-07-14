@@ -13,9 +13,9 @@ require 'json'
 
 
 Signal.trap('TERM') do
-  puts 'Shutting down..'
+  puts "#{Time.now.utc} :: Shutting down.."
   sleep 1 while RS.running_jobs.size > 0
-  puts 'Numbers finished..'
+  puts "#{Time.now.utc} :: Numbers finished.."
   exit
 end
 
@@ -40,7 +40,7 @@ RS.cron '* * * * *', overlap: false do
 end
 
 
-puts 'Numbers launched..'
+puts "#{Time.now.utc} :: Numbers launched.."
 begin
   RS.join
 rescue ThreadError

@@ -12,7 +12,7 @@ class GeneratesReports
     # table.each do |row|
     #   puts row.inspect
     # end
-    puts "Generated a report for the last #{table.size} events."
+    puts "#{Time.now.utc} :: Generated a report for the last #{table.size} events."
   end
 
 
