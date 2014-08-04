@@ -258,7 +258,7 @@ GEM
     rubyzip (1.0.0)
     rufus-scheduler (3.0.8)
       tzinfo
-    sequel (4.12.0)
+    sequel (4.13.0)
     thread_safe (0.3.4)
     thread_safe (0.3.4-java)
     tzinfo (1.2.1)
