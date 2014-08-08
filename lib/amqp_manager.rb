@@ -15,19 +15,6 @@ module AmqpManager
     end
 
 
-    def rails_channel
-      Thread.current[:rails_channel] ||= @connection.create_channel
-    end
-
-    def rails_xchange
-      Thread.current[:rails_xchange] ||= rails_channel.topic('voice.rails', auto_delete: false)
-    end
-
-    def rails_publish(payload)
-      rails_xchange.publish(payload, routing_key: 'voice.rails')
-    end
-
-
     def shutdown
       @connection.close
     end
@@ -50,7 +37,6 @@ module AmqpManager
 
       numbers_queue.bind(numbers_xchange, routing_key: 'voice.numbers')
       numbers_queue.subscribe { |delivery_info, metadata, payload|
-        rails_publish(payload)
         AmiEvent.log(payload)
       }
     end

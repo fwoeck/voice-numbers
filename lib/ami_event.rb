@@ -10,10 +10,10 @@ class AmiEvent
   def self.log(payload)
     data = JSON.parse payload
     create(
-      target_call_id: data['target_call_id'],
-      timestamp:      data['timestamp'],
       name:           data['name'],
-      headers:        data['headers']
+      headers:        data['headers'],
+      timestamp:      data['timestamp'],
+      target_call_id: data['target_call_id']
     )
   end
 end
