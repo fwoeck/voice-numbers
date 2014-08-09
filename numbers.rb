@@ -24,7 +24,7 @@ require './lib/numbers'
 Numbers.setup
 
 require './lib/user'
-require './lib/ami_event'
+require './lib/call_event'
 require './lib/generates_reports'
 require './lib/aggregates_numbers'
 

@@ -1,8 +1,8 @@
 class AggregatesNumbers
 
   # TODO
-  #   - Are AmiEvent-timestamps unique?
-  #   - Mongodb: ami_events should be a capped collection
+  #   - Are CallEvent-timestamps unique?
+  #   - Mongodb: call_events should be a capped collection
 
   attr_reader :start, :stop
 
@@ -13,7 +13,7 @@ class AggregatesNumbers
 
 
   def table
-    AmiEvent.where(timestamp: {
+    CallEvent.where(timestamp: {
       '$gt'  => start, '$lte' => stop
     }).order(timestamp: :asc).to_a
   end
