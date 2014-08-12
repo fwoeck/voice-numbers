@@ -261,7 +261,7 @@ GEM
     sequel (4.13.0)
     thread_safe (0.3.4)
     thread_safe (0.3.4-java)
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
 PLATFORMS
