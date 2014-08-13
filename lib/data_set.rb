@@ -40,11 +40,6 @@ class DataSet
   end
 
 
-  def save
-    Numbers.store_dataset self.to_json
-  end
-
-
   private
 
   def pre_queued_calls

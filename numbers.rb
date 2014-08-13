@@ -42,7 +42,9 @@ RS.cron '* * * * *', overlap: false do
 end
 
 RS.every '2s' do
-  DataSet.new(Numbers.get_raw_calls).save
+  Numbers.store_dataset(
+    DataSet.new(Numbers.get_raw_calls).to_json
+  )
 end
 
 
