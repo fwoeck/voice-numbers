@@ -1,8 +1,10 @@
 module Numbers
-  cattr_reader :number_conf, :redis_db, :sql_db
+
+  cattr_reader :number_conf, :redis_db, :sql_db, :rails_env
 
 
   def self.read_config
+    @@rails_env   = ENV['RAILS_ENV'] || 'development'
     @@number_conf = YAML.load(File.read(File.join('./config/app.yml')))
   end
 
@@ -15,7 +17,7 @@ module Numbers
 
 
   def self.setup_mongodb
-    Mongoid.load!('./config/mongoid.yml', ENV['RAILS_ENV'].to_sym)
+    Mongoid.load!('./config/mongoid.yml', rails_env.to_sym)
   end
 
 
@@ -40,16 +42,33 @@ module Numbers
   end
 
 
-  def self.redis_key
-    @@redis_key ||= "last_timestamp_#{ENV['RAILS_ENV'] || 'development'}"
+  def self.redis_timestamp
+    @@redis_timestamp ||= "#{rails_env}.numbers-timestamp"
+  end
+
+
+  def self.redis_dataset
+    @@redis_dataset ||= "#{rails_env}.numbers-dataset"
   end
 
 
   def self.set_timestamp
-    start = redis_db.get(redis_key) || '2014-01-01T00:00:00.000+00:00'
+    start = redis_db.get(redis_timestamp) || '2014-01-01T00:00:00.000+00:00'
     stop  = Time.now.utc.strftime '%Y-%m-%dT%H:%M:%S.%L+00:00'
 
-    redis_db.set(redis_key, stop)
+    redis_db.set(redis_timestamp, stop)
     [start, stop]
+  end
+
+
+  def self.get_raw_calls
+    redis_db.keys("#{rails_env}.call.*").map { |k|
+      JSON.parse redis_db.get(k) || '{}'
+    }
+  end
+
+
+  def self.store_dataset(data)
+    redis_db.set(redis_dataset, data)
   end
 end

@@ -24,6 +24,7 @@ require './lib/numbers'
 Numbers.setup
 
 require './lib/user'
+require './lib/data_set'
 require './lib/call_event'
 require './lib/generates_reports'
 require './lib/aggregates_numbers'
@@ -33,10 +34,17 @@ AmqpManager.start
 
 
 RS = Rufus::Scheduler.new
+
 RS.cron '* * * * *', overlap: false do
   GeneratesReports.new(
     AggregatesNumbers.new Numbers.set_timestamp
   ).log
+end
+
+RS.every '2s' do
+  Numbers.store_dataset(
+    DataSet.new(Numbers.get_raw_calls).to_json
+  )
 end
 
 
