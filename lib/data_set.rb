@@ -91,7 +91,7 @@ class DataSet
 
 
   def dispatched_calls
-    raw_calls.select { |c| c['CallTag'] && !c['Hungup'] }
+    raw_calls.select { |c| c['DispatchedAt'] && !c['Hungup'] }
   end
 
 
