@@ -47,7 +47,7 @@ class DataSet
 
     (call_queued_times.inject(0) { |sum, t|
       sum += time_now - t
-    } / call_queued_times.size).floor
+    } / call_queued_times.size).round
   end
 
 
