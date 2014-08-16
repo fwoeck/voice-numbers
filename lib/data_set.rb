@@ -17,16 +17,6 @@ class DataSet
   end
 
 
-  def max_queue_delay
-    queued_calls_delay_max
-  end
-
-
-  def avg_queue_delay
-    queued_calls_delay_avg
-  end
-
-
   def to_json
     JSON.dump({
       max_delay:              max_delay_hash,

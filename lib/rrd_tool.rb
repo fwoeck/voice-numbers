@@ -2,33 +2,49 @@ require 'rrd'
 
 module RrdTool
 
-  cattr_reader :queue_delay
+  PngFile = '/opt/voice-rails/public/queue-stats.png' # TODO Configure via Chef
+  RrdFile = './data/queue_stats.rrd'
+
+  RrdOpts = {
+    title: 'Call Queue History',
+    width: 887, height: 145, border: 0,
+    color: ['FONT#000000', 'BACK#FFFFFF']
+  }
+
+  cattr_reader :queue_stats
 
 
   def self.start
-    @@queue_delay = RRD::Base.new('./data/queue_delay.rrd')
+    @@queue_stats = RRD::Base.new(RrdFile)
 
-    unless queue_delay.info
-      queue_delay.create start: Time.now - 10.seconds, step: 1.minute do
-        datasource 'max_queue_delay', type: :gauge, heartbeat: 1.minute, min: 0, max: :unlimited
-        datasource 'avg_queue_delay', type: :gauge, heartbeat: 1.minute, min: 0, max: :unlimited
-        archive :average, every: 10.minutes, during: 1.week
+    unless queue_stats.info
+      res = queue_stats.create(start: Time.now - 10.seconds, step: 2.seconds) do
+        [:active, :queued, :incoming, :dispatched, :delay_max, :delay_avg
+        ].each { |src|
+          datasource src, type: :gauge, heartbeat: 1.minute, min: 0, max: :unlimited
+        }
+        archive :max, every: 97.seconds, during: 1.day
       end
     end
   end
 
 
   def self.update_with(data)
-    queue_delay.update Time.now,
-      data.max_queue_delay,
-      data.avg_queue_delay
+    queue_stats.update Time.now,
+      data.active_call_count, data.queued_call_count,
+      data.pre_queued_call_count, data.dispatched_call_count,
+      data.queued_calls_delay_max, data.queued_calls_delay_avg
   end
 
 
   def self.render_images
-    RRD.graph './data/queue_delay.png', title: 'Queue delays', width: 800, height: 250, color: ['FONT#000000', 'BACK#FFFFFF'] do
-      line './data/queue_delay.rrd', max_queue_delay: :average, color: '#0000FF', label: 'Max. queue delay'
-      line './data/queue_delay.rrd', avg_queue_delay: :average, color: '#00FF00', label: 'Avg. queue delay'
+    RRD.graph PngFile, RrdOpts do
+      line RrdFile, active:     :max, color: '#999999', label: 'Active calls'
+      line RrdFile, incoming:   :max, color: '#669900', label: 'Incoming calls'
+      line RrdFile, queued:     :max, color: '#3399FF', label: 'Queued calls'
+      line RrdFile, dispatched: :max, color: '#0033CC', label: 'Dispatched calls'
+      line RrdFile, delay_max:  :max, color: '#FF4444', label: 'Max. queue delay'
+      line RrdFile, delay_avg:  :max, color: '#44FF44', label: 'Avg. queue delay'
     end
   end
 end

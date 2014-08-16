@@ -1,15 +1,7 @@
 module CallAggregation
 
-  private
-
-
   def active_call_count
     pre_queued_call_count + queued_call_count + dispatched_call_count
-  end
-
-
-  def pre_queued_call_count
-    pre_queued_calls.size
   end
 
 
@@ -18,13 +10,13 @@ module CallAggregation
   end
 
 
-  def dispatched_call_count
-    dispatched_call_pairs.keys.size
+  def pre_queued_call_count
+    pre_queued_calls.size
   end
 
 
-  def time_now
-    @memo_time_now ||= Time.now.utc
+  def dispatched_call_count
+    dispatched_call_pairs.keys.size
   end
 
 
@@ -39,6 +31,13 @@ module CallAggregation
     (call_queued_times.inject(0) { |sum, t|
       sum += time_now - t
     } / call_queued_times.size).round
+  end
+
+  private
+
+
+  def time_now
+    @memo_time_now ||= Time.now.utc
   end
 
 
