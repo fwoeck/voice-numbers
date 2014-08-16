@@ -8,7 +8,7 @@ module RrdTool
   RrdOpts = {
     title: 'Call Queue History',
     width: 887, height: 145, border: 0,
-    color: ['FONT#000000', 'BACK#FFFFFF']
+    color: ['FONT#444444', 'BACK#FFFFFF']
   }
 
   cattr_reader :queue_stats
