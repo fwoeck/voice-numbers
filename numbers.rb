@@ -29,6 +29,9 @@ require './lib/call_event'
 require './lib/generates_reports'
 require './lib/aggregates_numbers'
 
+require './lib/rrd_tool'
+RrdTool.start
+
 require './lib/amqp_manager'
 AmqpManager.start
 
@@ -39,12 +42,15 @@ RS.cron '* * * * *', overlap: false do
   GeneratesReports.new(
     AggregatesNumbers.new Numbers.set_timestamp
   ).log
+
+  RrdTool.render_images
 end
 
 RS.every '2s' do
-  Numbers.store_dataset(
-    DataSet.new(Numbers.get_raw_calls).to_json
-  )
+  ds = DataSet.new(Numbers.get_raw_calls)
+
+  Numbers.store_dataset(ds.to_json)
+  RrdTool.update_with(ds)
 end
 
 
