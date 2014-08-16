@@ -23,7 +23,7 @@ module RrdTool
         ].each { |src|
           datasource src, type: :gauge, heartbeat: 1.minute, min: 0, max: :unlimited
         }
-        archive :max, every: 97.seconds, during: 1.day
+        archive :max, every: 48.seconds, during: 12.hours
       end
     end
   end
