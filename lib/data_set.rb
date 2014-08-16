@@ -1,10 +1,14 @@
 require 'json'
 require 'time'
+require './lib/call_details'
+require './lib/call_aggregation'
 
 
 class DataSet
 
   attr_reader :raw_calls
+  include CallDetails
+  include CallAggregation
 
 
   def initialize(calls)
@@ -12,47 +16,12 @@ class DataSet
   end
 
 
-  def active_call_count
-    pre_queued_call_count + queued_call_count + dispatched_call_count
-  end
-
-
-  def pre_queued_call_count
-    pre_queued_calls.size
-  end
-
-
-  def queued_call_count
-    queued_calls.size
-  end
-
-
-  def dispatched_call_count
-    dispatched_call_pairs.keys.size
-  end
-
-
-  def time_now
-    @memo_time_now ||= Time.now.utc
-  end
-
-
-  def queued_calls_delay_max
-    time_now - (call_queued_times.first || time_now)
-  end
-
-
-  def queued_calls_delay_avg
-    return 0 if call_queued_times.size == 0
-
-    (call_queued_times.inject(0) { |sum, t|
-      sum += time_now - t
-    } / call_queued_times.size).round
-  end
-
-
   def to_json
     JSON.dump({
+      max_delay:              max_delay_hash,
+      queued_calls:           queued_calls_hash,
+      average_delay:          average_delay_hash,
+      dispatched_calls:       dispatched_calls_hash,
       active_call_count:      active_call_count,
       queued_call_count:      queued_call_count,
       pre_queued_call_count:  pre_queued_call_count,
@@ -60,42 +29,5 @@ class DataSet
       queued_calls_delay_max: queued_calls_delay_max,
       queued_calls_delay_avg: queued_calls_delay_avg
     })
-  end
-
-
-  private
-
-
-  def call_queued_times
-    @memo_delays ||= queued_calls.map { |c| Time.parse c['QueuedAt'] }.sort
-  end
-
-
-  def pre_queued_calls
-    incoming_calls.select { |c| !c['QueuedAt'] && !c['DispatchedAt'] }
-  end
-
-
-  def queued_calls
-    incoming_calls.select { |c| c['QueuedAt'] && !c['DispatchedAt'] }
-  end
-
-
-  def incoming_calls
-    raw_calls.select { |c|
-      !c['CallTag'] && !c['Hungup'] && (
-        c['Extension'].blank? || c['Extension'] == '100'
-      )
-    }
-  end
-
-
-  def dispatched_calls
-    raw_calls.select { |c| c['DispatchedAt'] && !c['Hungup'] }
-  end
-
-
-  def dispatched_call_pairs
-    dispatched_calls.group_by { |c| c['CallTag'] }
   end
 end
