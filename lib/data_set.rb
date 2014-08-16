@@ -7,12 +7,23 @@ require './lib/call_aggregation'
 class DataSet
 
   attr_reader :raw_calls
+
   include CallDetails
   include CallAggregation
 
 
   def initialize(calls)
     @raw_calls = calls
+  end
+
+
+  def max_queue_delay
+    queued_calls_delay_max
+  end
+
+
+  def avg_queue_delay
+    queued_calls_delay_avg
   end
 
 
