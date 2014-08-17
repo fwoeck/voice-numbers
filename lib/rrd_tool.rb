@@ -21,9 +21,9 @@ module RrdTool
       res = queue_stats.create(start: Time.now - 10.seconds, step: 2.seconds) do
         [:active, :queued, :incoming, :dispatched, :delay_max, :delay_avg
         ].each { |src|
-          datasource src, type: :gauge, heartbeat: 1.minute, min: 0, max: :unlimited
+          datasource src, type: :gauge, heartbeat: 10.minutes, min: 0, max: :unlimited
         }
-        archive :max, every: 48.seconds, during: 12.hours
+        archive :max, every: 1.minute, during: 1.day
       end
     end
   end
