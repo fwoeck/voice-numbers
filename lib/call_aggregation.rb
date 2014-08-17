@@ -59,7 +59,7 @@ module CallAggregation
   def incoming_calls
     raw_calls.select { |c|
       !c['CallTag'] && !c['Hungup'] && (
-        c['Extension'].blank? || c['Extension'] == '100'
+        c['Extension'] == '0' || c['Extension'] == '100'
       )
     }
   end
