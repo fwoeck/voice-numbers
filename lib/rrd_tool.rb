@@ -2,10 +2,8 @@ require 'rrd'
 
 module RrdTool
 
-  # TODO Configure these via Chef:
-  #
-  PngFile = '/opt/voice-rails/public/images/queue-stats.png'
-  RrdFile = '/opt/voice-numbers/data/queue_stats.rrd'
+  PngFile = Numbers.number_conf['stats_image']
+  RrdFile = Numbers.number_conf['stats_rrd']
 
   RrdOpts = {
     title: 'Call Queue History',
