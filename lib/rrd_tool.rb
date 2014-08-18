@@ -2,7 +2,7 @@ require 'rrd'
 
 module RrdTool
 
-  PngFile = Numbers.number_conf['stats_image']
+  SvnFile = Numbers.number_conf['stats_image']
   RrdFile = Numbers.number_conf['stats_rrd']
 
   RrdOpts = {
@@ -38,7 +38,7 @@ module RrdTool
 
 
   def self.render_images
-    RRD.graph PngFile, RrdOpts do
+    RRD.graph SvnFile, RrdOpts do
       line RrdFile, active:     :max, color: '#999999', label: 'Active calls'
       line RrdFile, incoming:   :max, color: '#669900', label: 'Incoming calls'
       line RrdFile, queued:     :max, color: '#3399FF', label: 'Queued calls'
