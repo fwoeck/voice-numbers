@@ -6,8 +6,9 @@ module RrdTool
   RrdFile = Numbers.number_conf['stats_rrd']
 
   RrdOpts = {
+    imgformat: 'SVG',
     title: 'Call Queue History',
-    width: 887, height: 145, border: 0,
+    width: 887, height: 146, border: 0,
     color: ['FONT#444444', 'BACK#FFFFFF']
   }
 
