@@ -57,7 +57,7 @@ module CallAggregation
 
 
   def incoming_calls
-    admin_ext = Numbers.number_conf['admin_name'].to_s
+    admin_ext = Numbers.number_conf['admin_name']
 
     raw_calls.select { |c|
       !c['CallTag'] && !c['Hungup'] && (
