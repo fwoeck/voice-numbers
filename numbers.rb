@@ -11,15 +11,6 @@ Bundler.require
 require 'yaml'
 require 'json'
 
-
-Signal.trap('TERM') do
-  puts "#{Time.now.utc} :: Shutting down.."
-  sleep 1 while RS.running_jobs.size > 0
-  puts "#{Time.now.utc} :: Numbers finished.."
-  exit
-end
-
-
 require './lib/numbers'
 Numbers.setup
 
@@ -35,28 +26,5 @@ RrdTool.start
 require './lib/amqp_manager'
 AmqpManager.start
 
-
-RS = Rufus::Scheduler.new
-
-RS.cron '* * * * *', overlap: false do
-  GeneratesReports.new(
-    AggregatesNumbers.new Numbers.set_timestamp
-  ).log
-
-  RrdTool.render_images
-end
-
-RS.every '2s' do
-  ds = DataSet.new(Numbers.get_raw_calls)
-
-  Numbers.store_dataset(ds.to_json)
-  RrdTool.update_with(ds)
-end
-
-
-puts "#{Time.now.utc} :: Numbers launched.."
-begin
-  RS.join
-rescue ThreadError
-  # see https://github.com/jmettraux/rufus-scheduler/issues/98
-end
+require './lib/scheduler'
+Scheduler.start

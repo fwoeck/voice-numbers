@@ -24,7 +24,7 @@ module RrdTool
         ].each { |src|
           datasource src, type: :gauge, heartbeat: 10.minutes, min: 0, max: :unlimited
         }
-        archive :max, every: 1.minute, during: 1.day
+        archive :max, every: 30.seconds, during: 1.day
       end
     end
   end
@@ -47,5 +47,7 @@ module RrdTool
       line RrdFile, delay_max:  :max, color: '#FF4444', label: 'Max. queue delay'
       line RrdFile, delay_avg:  :max, color: '#44FF44', label: 'Avg. queue delay'
     end
+
+    puts "#{Time.now.utc} :: Updated realtime charts."
   end
 end
