@@ -47,5 +47,7 @@ module RrdTool
       line RrdFile, delay_max:  :max, color: '#FF4444', label: 'Max. queue delay'
       line RrdFile, delay_avg:  :max, color: '#44FF44', label: 'Avg. queue delay'
     end
+
+    puts "#{Time.now.utc} :: Updated realtime charts."
   end
 end
