@@ -7,6 +7,7 @@ module RrdTool
 
   RrdOpts = {
     imgformat: 'SVG',
+    disable_rrdtool_tag: true,
     title: 'Call Queue History',
     width: 887, height: 146, border: 0,
     color: ['FONT#444444', 'BACK#FFFFFF']
