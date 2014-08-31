@@ -261,7 +261,7 @@ GEM
     rubysl-yaml (2.0.4)
     rubysl-zlib (2.0.1)
     rubyzip (1.0.0)
-    rufus-scheduler (3.0.8)
+    rufus-scheduler (3.0.9)
       tzinfo
     sequel (4.13.0)
     thread_safe (0.3.4)
