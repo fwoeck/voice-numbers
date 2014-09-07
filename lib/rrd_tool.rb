@@ -2,8 +2,8 @@ require 'rrd'
 
 module RrdTool
 
-  SvnFile = Numbers.number_conf['stats_image']
-  RrdFile = Numbers.number_conf['stats_rrd']
+  SvnFile = Numbers.conf['stats_image']
+  RrdFile = Numbers.conf['stats_rrd']
 
   RrdOpts = {
     imgformat: 'SVG',

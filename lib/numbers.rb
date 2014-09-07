@@ -1,17 +1,17 @@
 module Numbers
 
-  cattr_reader :number_conf, :redis_db, :sql_db, :rails_env
+  cattr_reader :conf, :redis_db, :sql_db, :rails_env
 
 
   def self.read_config
-    @@rails_env   = ENV['RAILS_ENV'] || 'development'
-    @@number_conf = YAML.load(File.read(File.join('./config/app.yml')))
+    @@rails_env = ENV['RAILS_ENV'] || 'development'
+    @@conf      = YAML.load(File.read(File.join('./config/app.yml')))
   end
 
 
   def self.setup_redis
     @@redis_db = ConnectionPool::Wrapper.new(size: 5, timeout: 3) {
-      Redis.new(host: number_conf['redis_host'], port: number_conf['redis_port'], db: number_conf['redis_db'])
+      Redis.new(host: conf['redis_host'], port: conf['redis_port'], db: conf['redis_db'])
     }
   end
 
@@ -23,11 +23,11 @@ module Numbers
 
   def self.setup_sqldb
     plug = RUBY_PLATFORM =~ /java/ ? 'jdbc:mysql' : 'mysql2'
-    db   = number_conf['mysql_db']
-    host = number_conf['mysql_host']
-    port = number_conf['mysql_port']
-    user = number_conf['mysql_user']
-    pass = number_conf['mysql_pass']
+    db   = conf['mysql_db']
+    host = conf['mysql_host']
+    port = conf['mysql_port']
+    user = conf['mysql_user']
+    pass = conf['mysql_pass']
     uri  = "#{plug}://#{host}:#{port}/#{db}?user=#{user}&password=#{pass}"
 
     @@sql_db = Sequel.connect(uri)
