@@ -63,12 +63,12 @@ module Numbers
 
   def self.get_raw_calls
     redis_db.keys("#{rails_env}.call.*").map { |k|
-      JSON.parse redis_db.get(k) || '{}'
+      Marshal.load redis_db.get(k)
     }
   end
 
 
   def self.store_dataset(data)
-    redis_db.set(redis_dataset, data)
+    redis_db.set(redis_dataset, data.to_json)
   end
 end

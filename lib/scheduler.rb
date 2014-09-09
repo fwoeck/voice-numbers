@@ -23,7 +23,7 @@ module Scheduler
     RS.every '2s' do
       ds = DataSet.new(Numbers.get_raw_calls)
 
-      Numbers.store_dataset(ds.to_json)
+      Numbers.store_dataset(ds)
       RrdTool.update_with(ds)
     end
 

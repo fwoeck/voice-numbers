@@ -7,7 +7,7 @@ class CallEvent
 
 
   def self.log(payload)
-    data = JSON.parse payload
+    data = Marshal.load(payload)
     create(
       headers:        data['headers'],
       timestamp:      data['timestamp'],
