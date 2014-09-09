@@ -6,13 +6,13 @@ module CallDetails
   # Max. delays calculation
 
   def max_delay_hash
-    Numbers.number_conf['languages'].each_with_object({}) { |lang, hash|
+    Numbers.conf['languages'].each_with_object({}) { |lang, hash|
       hash[lang[0]] = max_delay_per_lang(lang[0])
     }
   end
 
   def max_delay_per_lang(lang)
-    Numbers.number_conf['skills'].each_with_object({}) { |skill, hash|
+    Numbers.conf['skills'].each_with_object({}) { |skill, hash|
       hash[skill[0]] = max_delay_per_skill(skill[0], lang).round
     }
   end
@@ -29,13 +29,13 @@ module CallDetails
   # Avg. delays calculation
 
   def average_delay_hash
-    Numbers.number_conf['languages'].each_with_object({}) { |lang, hash|
+    Numbers.conf['languages'].each_with_object({}) { |lang, hash|
       hash[lang[0]] = average_delay_per_lang(lang[0])
     }
   end
 
   def average_delay_per_lang(lang)
-    Numbers.number_conf['skills'].each_with_object({}) { |skill, hash|
+    Numbers.conf['skills'].each_with_object({}) { |skill, hash|
       hash[skill[0]] = average_delay_per_skill(skill[0], lang)
     }
   end
@@ -53,13 +53,13 @@ module CallDetails
   # Queued calls aggregation
 
   def queued_calls_hash
-    Numbers.number_conf['languages'].each_with_object({}) { |lang, hash|
+    Numbers.conf['languages'].each_with_object({}) { |lang, hash|
       hash[lang[0]] = queued_calls_per_lang(lang[0])
     }
   end
 
   def queued_calls_per_lang(lang)
-    Numbers.number_conf['skills'].each_with_object({}) { |skill, hash|
+    Numbers.conf['skills'].each_with_object({}) { |skill, hash|
       hash[skill[0]] = queued_calls_per_skill(skill[0], lang).size
     }
   end
@@ -72,13 +72,13 @@ module CallDetails
   # Dispatched calls aggregation
 
   def dispatched_calls_hash
-    Numbers.number_conf['languages'].each_with_object({}) { |lang, hash|
+    Numbers.conf['languages'].each_with_object({}) { |lang, hash|
       hash[lang[0]] = dispatched_calls_per_lang(lang[0])
     }
   end
 
   def dispatched_calls_per_lang(lang)
-    Numbers.number_conf['skills'].each_with_object({}) { |skill, hash|
+    Numbers.conf['skills'].each_with_object({}) { |skill, hash|
       hash[skill[0]] = dispatched_calls_per_skill(skill[0], lang).keys.size
     }
   end

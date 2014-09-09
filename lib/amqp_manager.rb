@@ -22,9 +22,9 @@ module AmqpManager
 
     def establish_connection
       @connection = Bunny.new(
-        host:     Numbers.number_conf['rabbit_host'],
-        user:     Numbers.number_conf['rabbit_user'],
-        password: Numbers.number_conf['rabbit_pass']
+        host:     Numbers.conf['rabbit_host'],
+        user:     Numbers.conf['rabbit_user'],
+        password: Numbers.conf['rabbit_pass']
       ).tap { |c| c.start }
     rescue Bunny::TCPConnectionFailed
       sleep 1
