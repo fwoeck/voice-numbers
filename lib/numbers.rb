@@ -63,8 +63,8 @@ module Numbers
 
   def self.get_raw_calls
     redis_db.keys("#{rails_env}.call.*").map { |k|
-      Marshal.load redis_db.get(k)
-    }
+      Marshal.load(redis_db.get(k) || "\x04\b0")
+    }.compact
   end
 
 
