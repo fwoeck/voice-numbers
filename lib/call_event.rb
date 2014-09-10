@@ -8,10 +8,11 @@ class CallEvent
 
   def self.log(payload)
     data = Marshal.load(payload)
+
     create(
-      headers:        data['headers'],
-      timestamp:      data['timestamp'],
-      target_call_id: data['target_call_id']
+      headers:        data[:headers],
+      timestamp:      data[:timestamp],
+      target_call_id: data[:target_call_id]
     )
   end
 end
