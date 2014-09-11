@@ -6,11 +6,11 @@ class CallEvent
   field :headers,        type: Hash
 
 
-  def self.log(data)
+  def self.log(call)
     create(
-      headers:        data[:headers],
-      timestamp:      data[:timestamp],
-      target_call_id: data[:target_call_id]
+      headers:        call.to_hash,
+      timestamp:      Time.now.utc,
+      target_call_id: call.target_id
     )
   end
 end

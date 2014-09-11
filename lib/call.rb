@@ -6,6 +6,13 @@ class Call
   attr_accessor *FORMAT
 
 
+  def to_hash
+    FORMAT.each_with_object({}) { |key, hash|
+      hash[key] = self.send(key)
+    }
+  end
+
+
   def self.call_key_pattern
     "#{Numbers.rails_env}.call.*"
   end
