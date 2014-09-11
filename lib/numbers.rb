@@ -47,28 +47,11 @@ module Numbers
   end
 
 
-  def self.redis_dataset
-    @@redis_dataset ||= "#{rails_env}.numbers-dataset"
-  end
-
-
   def self.set_timestamp
     start = redis_db.get(redis_timestamp) || '2014-01-01T00:00:00.000+00:00'
     stop  = Time.now.utc.strftime '%Y-%m-%dT%H:%M:%S.%L+00:00'
 
     redis_db.set(redis_timestamp, stop)
     [start, stop]
-  end
-
-
-  def self.get_raw_calls
-    redis_db.keys("#{rails_env}.call.*").map { |k|
-      Marshal.load(redis_db.get(k) || "\x04\b0")
-    }.compact
-  end
-
-
-  def self.store_dataset(data)
-    redis_db.set(redis_dataset, data.to_json)
   end
 end

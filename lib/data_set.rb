@@ -31,4 +31,14 @@ class DataSet
       queued_calls_delay_avg: queued_calls_delay_avg
     })
   end
+
+
+  def dataset_key
+    "#{Numbers.rails_env}.numbers-dataset"
+  end
+
+
+  def store
+    Numbers.redis_db.set(dataset_key, self.to_json)
+  end
 end
