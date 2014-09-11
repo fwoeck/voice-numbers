@@ -1,16 +1,16 @@
 class CallEvent
   include Mongoid::Document
 
-  field :target_call_id, type: String
-  field :timestamp,      type: String
-  field :headers,        type: Hash
+  field :call_id,   type: String
+  field :headers,   type: Hash
+  field :timestamp, type: Time
 
 
   def self.log(call)
     create(
-      headers:        call.to_hash,
-      timestamp:      Time.now.utc,
-      target_call_id: call.target_id
+      timestamp: Time.now.utc,
+      headers:   call.to_hash,
+      call_id:   call.call_id
     )
   end
 end
