@@ -42,17 +42,17 @@ module CallAggregation
 
 
   def call_queued_times
-    @memo_delays ||= queued_calls.map { |c| Time.parse c['QueuedAt'] }.sort
+    @memo_delays ||= queued_calls.map { |c| c.queued_at }.sort
   end
 
 
   def pre_queued_calls
-    incoming_calls.select { |c| !c['QueuedAt'] && !c['DispatchedAt'] }
+    incoming_calls.select { |c| !c.queued_at && !c.dispatched_at }
   end
 
 
   def queued_calls
-    @memo_queued_calls ||= incoming_calls.select { |c| c['QueuedAt'] && !c['DispatchedAt'] }
+    @memo_queued_calls ||= incoming_calls.select { |c| c.queued_at && !c.dispatched_at }
   end
 
 
@@ -60,19 +60,19 @@ module CallAggregation
     admin_ext = Numbers.conf['admin_name']
 
     raw_calls.select { |c|
-      !c['CallTag'] && !c['Hungup'] && (
-        c['Extension'] == '0' || c['Extension'] == admin_ext
+      !c.call_tag && !c.hungup && (
+        c.extension == '0' || c.extension == admin_ext
       )
     }
   end
 
 
   def dispatched_calls
-    @memo_dispatched_calls ||= raw_calls.select { |c| c['DispatchedAt'] && !c['Hungup'] }
+    @memo_dispatched_calls ||= raw_calls.select { |c| c.dispatched_at && !c.hungup }
   end
 
 
   def dispatched_call_pairs
-    @memo_dispatched_call_pairs ||= dispatched_calls.group_by { |c| c['CallTag'] }
+    @memo_dispatched_call_pairs ||= dispatched_calls.group_by { |c| c.call_tag }
   end
 end

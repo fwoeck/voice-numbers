@@ -21,9 +21,8 @@ module Scheduler
 
 
     RS.every '2s' do
-      ds = DataSet.new(Numbers.get_raw_calls)
-
-      Numbers.store_dataset(ds)
+      ds = DataSet.new(Call.all)
+      ds.store
       RrdTool.update_with(ds)
     end
 

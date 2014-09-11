@@ -14,6 +14,7 @@ require 'json'
 require './lib/numbers'
 Numbers.setup
 
+require './lib/call'
 require './lib/user'
 require './lib/data_set'
 require './lib/call_event'

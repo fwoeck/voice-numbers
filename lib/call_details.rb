@@ -22,7 +22,7 @@ module CallDetails
   end
 
   def call_queued_times_per_skill(skill, lang)
-    queued_calls_per_skill(skill, lang).map { |c| Time.parse c['QueuedAt'] }.sort
+    queued_calls_per_skill(skill, lang).map { |c| c.queued_at }.sort
   end
 
 
@@ -65,7 +65,7 @@ module CallDetails
   end
 
   def queued_calls_per_skill(skill, lang)
-    queued_calls.select { |c| c['Skill'] == skill && c['Language'] == lang }
+    queued_calls.select { |c| c.skill == skill && c.language == lang }
   end
 
 
@@ -84,7 +84,7 @@ module CallDetails
   end
 
   def dispatched_calls_per_skill(skill, lang)
-    dispatched_calls.select { |c| c['Skill'] == skill && c['Language'] == lang }
-                    .group_by { |c| c['CallTag'] }
+    dispatched_calls.select { |c| c.skill == skill && c.language == lang }
+                    .group_by { |c| c.call_tag }
   end
 end

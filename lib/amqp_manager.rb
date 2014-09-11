@@ -1,7 +1,6 @@
 module AmqpManager
   class << self
 
-
     def numbers_channel
       Thread.current[:numbers_channel] ||= @connection.create_channel
     end
@@ -37,7 +36,7 @@ module AmqpManager
 
       numbers_queue.bind(numbers_xchange, routing_key: 'voice.numbers')
       numbers_queue.subscribe { |delivery_info, metadata, payload|
-        CallEvent.log(payload)
+        CallEvent.log Marshal.load(payload)
       }
     end
   end

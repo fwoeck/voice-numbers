@@ -6,9 +6,7 @@ class CallEvent
   field :headers,        type: Hash
 
 
-  def self.log(payload)
-    data = Marshal.load(payload)
-
+  def self.log(data)
     create(
       headers:        data[:headers],
       timestamp:      data[:timestamp],
