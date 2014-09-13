@@ -1,9 +1,8 @@
 class CallEvent
   include Mongoid::Document
 
-  field :call_id,   type: String
-  field :headers,   type: Hash
   field :timestamp, type: Time
+  field :headers,   type: Hash
 
 
   def self.log(call)
