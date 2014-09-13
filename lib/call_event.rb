@@ -8,8 +8,7 @@ class CallEvent
   def self.log(call)
     create(
       timestamp: Time.now.utc,
-      headers:   call.to_hash,
-      call_id:   call.call_id
+      headers:   call.to_hash
     )
   end
 end

@@ -8,8 +8,7 @@ class AgentEvent
   def self.log(agent)
     create(
       timestamp: Time.now.utc,
-      headers:   agent.to_hash,
-      call_id:   agent.call_id
+      headers:   agent.to_hash
     )
   end
 end
