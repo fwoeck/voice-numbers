@@ -36,7 +36,7 @@ module AmqpManager
 
       numbers_queue.bind(numbers_xchange, routing_key: 'voice.numbers')
       numbers_queue.subscribe { |delivery_info, metadata, payload|
-        CallEvent.log Marshal.load(payload)
+        Marshal.load(payload).handle_update
       }
     end
   end

@@ -16,8 +16,10 @@ Numbers.setup
 
 require './lib/call'
 require './lib/user'
+require './lib/agent'
 require './lib/data_set'
 require './lib/call_event'
+require './lib/agent_event'
 require './lib/generates_reports'
 require './lib/aggregates_numbers'
 

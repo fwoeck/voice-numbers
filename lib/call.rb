@@ -6,6 +6,11 @@ class Call
   attr_accessor *FORMAT
 
 
+  def handle_update
+    CallEvent.log(self)
+  end
+
+
   def to_hash
     FORMAT.each_with_object({}) { |key, hash|
       hash[key] = self.send(key)
