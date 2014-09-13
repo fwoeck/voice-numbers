@@ -1,14 +1,14 @@
-class CallEvent
+class AgentEvent
   include Mongoid::Document
 
   field :timestamp, type: Time
   field :headers,   type: Hash
 
 
-  def self.log(call)
+  def self.log(agent)
     create(
       timestamp: Time.now.utc,
-      headers:   call.to_hash
+      headers:   agent.to_hash
     )
   end
 end
