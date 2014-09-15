@@ -15,7 +15,6 @@ require './lib/numbers'
 Numbers.setup
 
 require './lib/call'
-require './lib/user'
 require './lib/agent'
 require './lib/data_set'
 require './lib/call_event'
