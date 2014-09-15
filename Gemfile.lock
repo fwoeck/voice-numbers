@@ -31,7 +31,6 @@ GEM
       colorize
     htmlentities (4.3.2)
     i18n (0.6.11)
-    jdbc-mysql (5.1.31)
     json (1.8.1)
     json (1.8.1-java)
     mini_portile (0.6.0)
@@ -45,7 +44,6 @@ GEM
       bson (~> 2.2)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
-    mysql2 (0.3.16)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     nokogiri (1.6.3.1-java)
@@ -263,7 +261,6 @@ GEM
     rubyzip (1.0.0)
     rufus-scheduler (3.0.9)
       tzinfo
-    sequel (4.14.0)
     thread_safe (0.3.4)
     thread_safe (0.3.4-java)
     tzinfo (1.2.2)
@@ -278,12 +275,9 @@ DEPENDENCIES
   bunny
   connection_pool
   git-smart
-  jdbc-mysql
   mongoid
-  mysql2
   redis
   rrd-ffi
   rubygems-bundler
   rubysl
   rufus-scheduler
-  sequel
