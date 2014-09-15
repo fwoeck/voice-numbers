@@ -1,6 +1,6 @@
 module Numbers
 
-  cattr_reader :conf, :redis_db, :sql_db, :rails_env
+  cattr_reader :conf, :redis_db, :rails_env
 
 
   def self.read_config
@@ -21,24 +21,10 @@ module Numbers
   end
 
 
-  def self.setup_sqldb
-    plug = RUBY_PLATFORM =~ /java/ ? 'jdbc:mysql' : 'mysql2'
-    db   = conf['mysql_db']
-    host = conf['mysql_host']
-    port = conf['mysql_port']
-    user = conf['mysql_user']
-    pass = conf['mysql_pass']
-    uri  = "#{plug}://#{host}:#{port}/#{db}?user=#{user}&password=#{pass}"
-
-    @@sql_db = Sequel.connect(uri)
-  end
-
-
   def self.setup
     read_config
     setup_redis
     setup_mongodb
-    setup_sqldb
   end
 
 
