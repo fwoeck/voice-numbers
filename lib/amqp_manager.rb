@@ -14,6 +14,20 @@ module AmqpManager
     end
 
 
+    def rails_channel
+      Thread.current[:rails_channel] ||= @connection.create_channel
+    end
+
+    def rails_xchange
+      Thread.current[:rails_xchange] ||= rails_channel.topic('voice.rails', auto_delete: false)
+    end
+
+    def rails_publish(payload)
+      data = Marshal.dump(payload)
+      rails_xchange.publish(data, routing_key: 'voice.rails')
+    end
+
+
     def shutdown
       @connection.close
     end

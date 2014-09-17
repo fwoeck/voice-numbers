@@ -6,6 +6,9 @@ module Scheduler
     Signal.trap('TERM') do
       puts "#{Time.now.utc} :: Shutting down.."
       sleep 1 while RS.running_jobs.size > 0
+
+      AmqpManager.shutdown
+      RequestWorker.shutdown
       puts "#{Time.now.utc} :: Numbers finished.."
       exit
     end
@@ -21,7 +24,7 @@ module Scheduler
 
 
     RS.every '2s' do
-      ds = DataSet.new(Call.all)
+      ds = Dataset.new(Call.all)
       ds.store
       RrdTool.update_with(ds)
     end
