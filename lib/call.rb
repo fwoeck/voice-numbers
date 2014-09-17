@@ -24,8 +24,11 @@ class Call
 
 
   def self.all
-    Numbers.redis_db.keys(call_key_pattern).map { |key|
-      Marshal.load(Numbers.redis_db.get(key) || "\x04\b0")
+    call_keys = Numbers.redis_db.keys(call_key_pattern)
+    return [] if call_keys.empty?
+
+    Numbers.redis_db.mget(*call_keys).map { |call|
+      Marshal.load(call || "\x04\b0")
     }.compact.select { |call|
       !call.hungup
     }
