@@ -5,6 +5,7 @@ gem 'redis'
 gem 'bunny'
 gem 'rrd-ffi'
 gem 'mongoid'
+gem 'celluloid'
 gem 'rufus-scheduler'
 gem 'connection_pool'
 
