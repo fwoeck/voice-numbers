@@ -4,7 +4,7 @@ class Agent
                 :locked, :availability, :idle_since, :mutex, :unlock_scheduled
 
 
-  def handle_update
+  def handle_message
     AgentEvent.log(self)
   end
 

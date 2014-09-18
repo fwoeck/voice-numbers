@@ -6,7 +6,7 @@ class Call
   attr_accessor *FORMAT
 
 
-  def handle_update
+  def handle_message
     CallEvent.log(self)
   end
 
