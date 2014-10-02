@@ -1,6 +1,6 @@
 module Numbers
 
-  cattr_reader :conf, :redis_db, :rails_env
+  cattr_reader :conf, :redis, :rails_env
 
 
   def self.read_config
@@ -10,7 +10,7 @@ module Numbers
 
 
   def self.setup_redis
-    @@redis_db = ConnectionPool::Wrapper.new(size: 5, timeout: 3) {
+    @@redis = ConnectionPool.new(size: 5, timeout: 3) {
       Redis.new(host: conf['redis_host'], port: conf['redis_port'], db: conf['redis_db'])
     }
   end
@@ -34,10 +34,10 @@ module Numbers
 
 
   def self.set_timestamp
-    start = redis_db.get(redis_timestamp) || '2014-01-01T00:00:00.000+00:00'
+    start = redis.with { |con| con.get(redis_timestamp) } || '2014-01-01T00:00:00.000+00:00'
     stop  = Time.now.utc.strftime '%Y-%m-%dT%H:%M:%S.%L+00:00'
 
-    redis_db.set(redis_timestamp, stop)
+    redis.with { |con| con.set(redis_timestamp, stop) }
     [start, stop]
   end
 end
