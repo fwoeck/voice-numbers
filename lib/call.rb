@@ -24,10 +24,10 @@ class Call
 
 
   def self.all
-    call_keys = Numbers.redis_db.keys(call_key_pattern)
+    call_keys = Numbers.redis.with { |con| con.keys(call_key_pattern) }
     return [] if call_keys.empty?
 
-    Numbers.redis_db.mget(*call_keys).map { |call|
+    Numbers.redis.with { |con| con.mget(*call_keys) }.map { |call|
       Marshal.load(call || "\x04\b0")
     }.compact.select { |call|
       !call.hungup
