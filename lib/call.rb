@@ -1,5 +1,6 @@
 class Call
 
+  Nil    = "\x04\b0"
   FORMAT = %w{call_id call_tag origin_id language skill extension caller_id hungup called_at mailbox queued_at hungup_at dispatched_at}
            .map(&:to_sym)
 
@@ -28,7 +29,7 @@ class Call
     return [] if call_keys.empty?
 
     Numbers.redis.with { |con| con.mget(*call_keys) }.map { |call|
-      Marshal.load(call || "\x04\b0")
+      Marshal.load(call || Nil)
     }.compact.select { |call|
       !call.hungup
     }
