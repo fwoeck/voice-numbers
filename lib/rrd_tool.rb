@@ -6,7 +6,9 @@ module RrdTool
   RrdFile = Numbers.conf['stats_rrd']
 
   RrdOpts = {
+    rigid: true,
     imgformat: 'SVG',
+    upper_limit: 100,
     disable_rrdtool_tag: true,
     title: 'Call Queue History',
     width: 902, height: 147, border: 0,
