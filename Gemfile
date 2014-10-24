@@ -11,7 +11,3 @@ gem 'connection_pool'
 
 gem 'git-smart',        require: nil
 gem 'rubygems-bundler', require: nil
-
-platforms :rbx do
-  gem 'rubysl'
-end
