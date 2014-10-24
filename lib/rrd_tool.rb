@@ -43,12 +43,13 @@ module RrdTool
 
   def self.render_images
     RRD.graph SvnFile, RrdOpts do
-      line RrdFile, active:     :max, color: '#999999', label: 'Active calls'
-      line RrdFile, incoming:   :max, color: '#669900', label: 'Incoming calls'
-      line RrdFile, queued:     :max, color: '#3399FF', label: 'Queued calls'
-      line RrdFile, dispatched: :max, color: '#0033CC', label: 'Dispatched calls'
-      line RrdFile, delay_max:  :max, color: '#FF4444', label: 'Max. queue delay'
-      line RrdFile, delay_avg:  :max, color: '#44FF44', label: 'Avg. queue delay'
+    # line RrdFile, delay_max:  :max, color: '#999999', label: 'Max. queue delay'
+      line RrdFile, delay_avg:  :max, color: '#EE4444', label: 'Avg. queue delay'
+
+    # line RrdFile, active:     :max, color: '#00EE00', label: 'Active calls'
+      line RrdFile, incoming:   :max, color: '#AAAAAA', label: 'Incoming calls'
+      line RrdFile, queued:     :max, color: '#2222FF', label: 'Queued calls'
+      line RrdFile, dispatched: :max, color: '#00EE00', label: 'Dispatched calls'
     end
 
     puts "#{Time.now.utc} :: Updated realtime charts."
