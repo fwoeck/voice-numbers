@@ -58,7 +58,7 @@ module CallAggregation
 
   def incoming_calls
     raw_calls.select { |c|
-      !c.call_tag && !c.hungup && (
+      !c.call_tag && !c.hungup_at && (
         c.extension == '0' || c.extension == Numbers.conf['admin_name']
       )
     }
@@ -66,7 +66,7 @@ module CallAggregation
 
 
   def dispatched_calls
-    @memo_dispatched_calls ||= raw_calls.select { |c| c.dispatched_at && !c.hungup }
+    @memo_dispatched_calls ||= raw_calls.select { |c| c.dispatched_at && !c.hungup_at }
   end
 
 
