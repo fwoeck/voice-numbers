@@ -12,6 +12,7 @@ RSpec.configure do |config|
   config.order = 'random'
 
   config.before(:suite) do
+    ENV['RAILS_ENV'] = 'test'
     Numbers.setup
   end
 end
