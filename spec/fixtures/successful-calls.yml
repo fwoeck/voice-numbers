@@ -1,0 +1,534 @@
+---
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-aefcfe80929b
+  call_tag: SIP/105-00000001 SIP/0826432283-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-aefcfe80929b
+  language: de
+  skill: new_booking
+  extension: '105'
+  caller_id: 0826432283
+  called_at: 2014-11-08 10:03:36.806662048 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:39.153761539 Z
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-e85f5b2b7898
+  call_tag: SIP/110-00000001 SIP/052980737-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-e85f5b2b7898
+  language: de
+  skill: payment
+  extension: '110'
+  caller_id: 052980737
+  called_at: 2014-11-08 10:03:33.933982863 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:36.281082354 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-04e62950c315
+  call_tag: SIP/116-00000001 SIP/08897373588-00000000
+  origin_id: 
+  language: it
+  skill: new_booking
+  extension: '0'
+  caller_id: 08897373588
+  called_at: 2014-11-08 10:03:09.749531517 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:28.652319584 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.852142742 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-40479c4c3a75
+  call_tag: 
+  origin_id: 
+  language: en
+  skill: new_booking
+  extension: '0'
+  caller_id: 0524883147
+  called_at: 2014-11-08 10:03:23.161400445 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-fa76a033242e
+  call_tag: SIP/107-00000001 SIP/067261414131-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-fa76a033242e
+  language: en
+  skill: other
+  extension: '107'
+  caller_id: '067261414131'
+  called_at: 2014-11-08 10:03:28.794833154 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:31.141932645 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-c367be1b5ba4
+  call_tag: 
+  origin_id: 
+  language: en
+  skill: 
+  extension: '0'
+  caller_id: 062594224
+  called_at: 2014-11-08 10:03:31.123294192 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-6c2ea8a12650
+  call_tag: SIP/119-00000001 SIP/07241603298-00000000
+  origin_id: 
+  language: es
+  skill: ext_booking
+  extension: '0'
+  caller_id: 07241603298
+  called_at: 2014-11-08 10:03:08.084160467 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:26.986948534 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:32.186771692 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-705cab65fc89
+  call_tag: SIP/101-00000001 SIP/006979830863-00000000
+  origin_id: 
+  language: it
+  skill: payment
+  extension: '0'
+  caller_id: 006979830863
+  called_at: 2014-11-08 10:03:14.246646049 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:33.149434116 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:38.349257274 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-e85f5b2b7898
+  call_tag: SIP/110-00000001 SIP/052980737-00000000
+  origin_id: 
+  language: de
+  skill: payment
+  extension: '0'
+  caller_id: 052980737
+  called_at: 2014-11-08 10:03:12.188510361 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:31.091298428 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:36.291121586 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-c7a5219eb58a
+  call_tag: 
+  origin_id: 
+  language: fr
+  skill: 
+  extension: '0'
+  caller_id: 093703639
+  called_at: 2014-11-08 10:03:31.843198853 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-348b6f685dc5
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: 
+  extension: '0'
+  caller_id: 0786115136
+  called_at: 2014-11-08 10:03:34.578668888 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-c8f2fa171f6c
+  call_tag: SIP/127-00000001 SIP/08484264926-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-c8f2fa171f6c
+  language: fr
+  skill: other
+  extension: '127'
+  caller_id: 08484264926
+  called_at: 2014-11-08 10:03:34.668275802 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:37.015375293 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-1d08746d85cf
+  call_tag: SIP/124-00000001 SIP/073257835862-00000000
+  origin_id: 
+  language: it
+  skill: new_booking
+  extension: '0'
+  caller_id: 073257835862
+  called_at: 2014-11-08 10:03:06.958877227 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:25.861665294 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:31.061488452 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-6026935a944c
+  call_tag: 
+  origin_id: 
+  language: 
+  skill: 
+  extension: '0'
+  caller_id: '02424767640'
+  called_at: 2014-11-08 10:03:38.340203839 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-247c63ed754b
+  call_tag: SIP/103-00000001 SIP/073855288-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-247c63ed754b
+  language: fr
+  skill: payment
+  extension: '103'
+  caller_id: 073855288
+  called_at: 2014-11-08 10:03:36.139402689 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:38.486502180 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-401bfd890b1c
+  call_tag: SIP/120-00000001 SIP/09484975132-00000000
+  origin_id: 
+  language: en
+  skill: payment
+  extension: '0'
+  caller_id: 09484975132
+  called_at: 2014-11-08 10:03:12.283769406 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:31.186557473 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:36.386380631 Z
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-f88e5bae775b
+  call_tag: SIP/113-00000001 SIP/054727347-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-f88e5bae775b
+  language: es
+  skill: new_booking
+  extension: '113'
+  caller_id: '054727347'
+  called_at: 2014-11-08 10:03:31.073117371 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.420216862 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-416366f44f7d
+  call_tag: 
+  origin_id: 
+  language: 
+  skill: 
+  extension: '0'
+  caller_id: 06695061572
+  called_at: 2014-11-08 10:03:34.646700065 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-49216f079348
+  call_tag: 
+  origin_id: 3d037b28-4808-4e21-8c61-49216f079348
+  language: es
+  skill: new_booking
+  extension: '109'
+  caller_id: 0855688676
+  called_at: 2014-11-08 10:03:38.596615525 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-f88e5bae775b
+  call_tag: SIP/113-00000001 SIP/054727347-00000000
+  origin_id: 
+  language: es
+  skill: new_booking
+  extension: '0'
+  caller_id: '054727347'
+  called_at: 2014-11-08 10:03:09.327644869 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:28.230432936 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.430256094 Z
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-41851358e618
+  call_tag: SIP/115-00000001 SIP/048616389-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-41851358e618
+  language: fr
+  skill: ext_booking
+  extension: '115'
+  caller_id: 048616389
+  called_at: 2014-11-08 10:03:31.588282597 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.935382088 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-b3372c2edaaa
+  call_tag: 
+  origin_id: 
+  language: fr
+  skill: ext_booking
+  extension: '0'
+  caller_id: '006456114'
+  called_at: 2014-11-08 10:03:20.288729271 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:39.191517338 Z
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-81071b723c3c
+  call_tag: 
+  origin_id: 
+  language: it
+  skill: new_booking
+  extension: '0'
+  caller_id: 04774877505
+  called_at: 2014-11-08 10:03:25.864153256 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-89b178c015b9
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: 
+  extension: '0'
+  caller_id: 00252244948
+  called_at: 2014-11-08 10:03:26.689359528 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-9dd966cf0d5c
+  call_tag: 
+  origin_id: 3d037b28-4808-4e21-8c61-9dd966cf0d5c
+  language: es
+  skill: other
+  extension: '106'
+  caller_id: 043364935
+  called_at: 2014-11-08 10:03:40.398013189 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-875278e6f049
+  call_tag: 
+  origin_id: 
+  language: fr
+  skill: 
+  extension: '0'
+  caller_id: 079562472837
+  called_at: 2014-11-08 10:03:27.874322646 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-401bfd890b1c
+  call_tag: SIP/120-00000001 SIP/09484975132-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-401bfd890b1c
+  language: en
+  skill: payment
+  extension: '120'
+  caller_id: 09484975132
+  called_at: 2014-11-08 10:03:34.029241908 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:36.376341399 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-fa76a033242e
+  call_tag: SIP/107-00000001 SIP/067261414131-00000000
+  origin_id: 
+  language: en
+  skill: other
+  extension: '0'
+  caller_id: '067261414131'
+  called_at: 2014-11-08 10:03:07.049360652 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:25.952148719 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:31.151971877 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-247c63ed754b
+  call_tag: SIP/103-00000001 SIP/073855288-00000000
+  origin_id: 
+  language: fr
+  skill: payment
+  extension: '0'
+  caller_id: 073855288
+  called_at: 2014-11-08 10:03:14.393930187 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:33.296718254 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:38.496541412 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-aefcfe80929b
+  call_tag: SIP/105-00000001 SIP/0826432283-00000000
+  origin_id: 
+  language: de
+  skill: new_booking
+  extension: '0'
+  caller_id: 0826432283
+  called_at: 2014-11-08 10:03:15.061189546 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:33.963977613 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:39.163800771 Z
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-04e62950c315
+  call_tag: SIP/116-00000001 SIP/08897373588-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-04e62950c315
+  language: it
+  skill: new_booking
+  extension: '116'
+  caller_id: 08897373588
+  called_at: 2014-11-08 10:03:31.495004019 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.842103510 Z
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-705cab65fc89
+  call_tag: SIP/101-00000001 SIP/006979830863-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-705cab65fc89
+  language: it
+  skill: payment
+  extension: '101'
+  caller_id: 006979830863
+  called_at: 2014-11-08 10:03:35.992118551 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:38.339218042 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-a4bf44af28a9
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: 
+  extension: '0'
+  caller_id: '043236155354'
+  called_at: 2014-11-08 10:03:33.390174100 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-d5d9f17d4d7c
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: 
+  extension: '0'
+  caller_id: '03166205543'
+  called_at: 2014-11-08 10:03:30.739845099 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-41851358e618
+  call_tag: SIP/115-00000001 SIP/048616389-00000000
+  origin_id: 
+  language: fr
+  skill: ext_booking
+  extension: '0'
+  caller_id: 048616389
+  called_at: 2014-11-08 10:03:09.842810095 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:28.745598162 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:33.945421320 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-9dd966cf0d5c
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: other
+  extension: '0'
+  caller_id: 043364935
+  called_at: 2014-11-08 10:03:18.652540687 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:37.555328754 Z
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-1d08746d85cf
+  call_tag: SIP/124-00000001 SIP/073257835862-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-1d08746d85cf
+  language: it
+  skill: new_booking
+  extension: '124'
+  caller_id: 073257835862
+  called_at: 2014-11-08 10:03:28.704349729 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:31.051449220 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-49216f079348
+  call_tag: 
+  origin_id: 
+  language: es
+  skill: new_booking
+  extension: '0'
+  caller_id: 0855688676
+  called_at: 2014-11-08 10:03:16.851143023 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:35.753931090 Z
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-d04ee5704bd7
+  call_tag: 
+  origin_id: 
+  language: 
+  skill: 
+  extension: '0'
+  caller_id: 0595611551
+  called_at: 2014-11-08 10:03:37.575540482 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 
+- !ruby/object:Call
+  call_id: 84d48b9d-c385-4045-b4a3-6c2ea8a12650
+  call_tag: SIP/119-00000001 SIP/07241603298-00000000
+  origin_id: 3d037b28-4808-4e21-8c61-6c2ea8a12650
+  language: es
+  skill: ext_booking
+  extension: '119'
+  caller_id: 07241603298
+  called_at: 2014-11-08 10:03:29.829632969 Z
+  mailbox: 
+  queued_at: 
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:32.176732460 Z
+- !ruby/object:Call
+  call_id: 3d037b28-4808-4e21-8c61-c8f2fa171f6c
+  call_tag: SIP/127-00000001 SIP/08484264926-00000000
+  origin_id: 
+  language: fr
+  skill: other
+  extension: '0'
+  caller_id: 08484264926
+  called_at: 2014-11-08 10:03:12.922803300 Z
+  mailbox: 
+  queued_at: 2014-11-08 10:03:31.825591367 Z
+  hungup_at: 
+  dispatched_at: 2014-11-08 10:03:37.025414525 Z

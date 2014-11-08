@@ -15,3 +15,9 @@ end
 platforms :ruby do
   gem 'bunny'
 end
+
+group :development do
+  gem 'rspec'
+  gem 'timecop'
+  gem 'guard-rspec'
+end

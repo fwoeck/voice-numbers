@@ -1,7 +1,5 @@
 module CallDetails
 
-  private
-
   def langs
     Numbers.conf['languages']
   end
