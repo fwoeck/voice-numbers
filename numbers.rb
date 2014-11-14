@@ -9,7 +9,6 @@ require 'bundler'
 Bundler.require
 
 require 'yaml'
-require 'json'
 require 'time'
 
 require './lib/numbers'
